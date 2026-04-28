@@ -151,6 +151,7 @@ export const createIssueSchema = z.object({
   executionWorkspacePreference: z.enum(ISSUE_EXECUTION_WORKSPACE_PREFERENCES).optional().nullable(),
   executionWorkspaceSettings: issueExecutionWorkspaceSettingsSchema.optional().nullable(),
   labelIds: z.array(z.string().uuid()).optional(),
+  originKind: z.enum(["manual", "conversation"]).optional(),
 });
 
 export type CreateIssue = z.infer<typeof createIssueSchema>;

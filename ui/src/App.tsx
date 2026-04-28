@@ -15,6 +15,7 @@ import { Workspaces } from "./pages/Workspaces";
 import { Issues } from "./pages/Issues";
 import { IssueDetail } from "./pages/IssueDetail";
 import { IssueChatLongThreadPerf } from "./pages/IssueChatLongThreadPerf";
+import { Chat, ConversationDetail } from "./features/chat";
 import { Routines } from "./pages/Routines";
 import { RoutineDetail } from "./pages/RoutineDetail";
 import { UserProfile } from "./pages/UserProfile";
@@ -104,6 +105,8 @@ function boardRoutes() {
       {import.meta.env.DEV ? (
         <Route path="tests/perf/long-thread" element={<IssueChatLongThreadPerf />} />
       ) : null}
+      <Route path="chat" element={<Chat />} />
+      <Route path="chat/:issueId" element={<ConversationDetail />} />
       <Route path="routines" element={<Routines />} />
       <Route path="routines/:routineId" element={<RoutineDetail />} />
       <Route path="execution-workspaces/:workspaceId" element={<ExecutionWorkspaceDetail />} />

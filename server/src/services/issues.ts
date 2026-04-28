@@ -121,6 +121,7 @@ export interface IssueFilters {
   originId?: string;
   includeRoutineExecutions?: boolean;
   excludeRoutineExecutions?: boolean;
+  excludeConversations?: boolean;
   includeBlockedBy?: boolean;
   q?: string;
   limit?: number;
@@ -2198,6 +2199,9 @@ export function issueService(db: Db) {
       }
       if (filters?.excludeRoutineExecutions && !filters?.originKind && !filters?.originId) {
         conditions.push(ne(issues.originKind, "routine_execution"));
+      }
+      if (filters?.excludeConversations && filters?.originKind !== "conversation") {
+        conditions.push(ne(issues.originKind, "conversation"));
       }
       conditions.push(isNull(issues.hiddenAt));
 

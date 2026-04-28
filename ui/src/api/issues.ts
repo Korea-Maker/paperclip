@@ -45,6 +45,7 @@ export const issuesApi = {
       originId?: string;
       descendantOf?: string;
       includeRoutineExecutions?: boolean;
+      excludeConversations?: boolean;
       includeBlockedBy?: boolean;
       q?: string;
       limit?: number;
@@ -52,6 +53,10 @@ export const issuesApi = {
     },
   ) => {
     const params = new URLSearchParams();
+    const excludeConvos = filters?.excludeConversations ?? true;
+    if (excludeConvos && filters?.originKind !== "conversation") {
+      params.set("excludeConversations", "true");
+    }
     if (filters?.status) params.set("status", filters.status);
     if (filters?.projectId) params.set("projectId", filters.projectId);
     if (filters?.parentId) params.set("parentId", filters.parentId);

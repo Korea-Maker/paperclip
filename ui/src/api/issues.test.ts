@@ -20,7 +20,7 @@ describe("issuesApi.list", () => {
     await issuesApi.list("company-1", { parentId: "issue-parent-1", limit: 25 });
 
     expect(mockApi.get).toHaveBeenCalledWith(
-      "/companies/company-1/issues?parentId=issue-parent-1&limit=25",
+      "/companies/company-1/issues?excludeConversations=true&parentId=issue-parent-1&limit=25",
     );
   });
 
@@ -28,7 +28,7 @@ describe("issuesApi.list", () => {
     await issuesApi.list("company-1", { descendantOf: "issue-root-1", includeBlockedBy: true, limit: 25 });
 
     expect(mockApi.get).toHaveBeenCalledWith(
-      "/companies/company-1/issues?descendantOf=issue-root-1&includeBlockedBy=true&limit=25",
+      "/companies/company-1/issues?excludeConversations=true&descendantOf=issue-root-1&includeBlockedBy=true&limit=25",
     );
   });
 
@@ -36,7 +36,7 @@ describe("issuesApi.list", () => {
     await issuesApi.list("company-1", { workspaceId: "workspace-1", limit: 1000 });
 
     expect(mockApi.get).toHaveBeenCalledWith(
-      "/companies/company-1/issues?workspaceId=workspace-1&limit=1000",
+      "/companies/company-1/issues?excludeConversations=true&workspaceId=workspace-1&limit=1000",
     );
   });
 
@@ -44,7 +44,7 @@ describe("issuesApi.list", () => {
     await issuesApi.list("company-1", { limit: 500, offset: 1500 });
 
     expect(mockApi.get).toHaveBeenCalledWith(
-      "/companies/company-1/issues?limit=500&offset=1500",
+      "/companies/company-1/issues?excludeConversations=true&limit=500&offset=1500",
     );
   });
 });

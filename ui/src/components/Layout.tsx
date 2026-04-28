@@ -18,6 +18,7 @@ import { MobileBottomNav } from "./MobileBottomNav";
 import { WorktreeBanner } from "./WorktreeBanner";
 import { DevRestartBanner } from "./DevRestartBanner";
 import { SidebarAccountMenu } from "./SidebarAccountMenu";
+import { FloatingChatButton } from "../features/chat";
 import { useDialogActions } from "../context/DialogContext";
 import { GeneralSettingsProvider } from "../context/GeneralSettingsContext";
 import { usePanel } from "../context/PanelContext";
@@ -417,6 +418,7 @@ export function Layout() {
       <NewAgentDialog />
       <KeyboardShortcutsCheatsheet open={shortcutsOpen} onOpenChange={setShortcutsOpen} />
       <ToastViewport />
+      <FloatingChatButton />
       </div>
     </GeneralSettingsProvider>
   );

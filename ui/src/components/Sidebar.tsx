@@ -11,6 +11,7 @@ import {
   Boxes,
   Repeat,
   GitBranch,
+  MessageSquare,
   Settings,
 } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
@@ -98,6 +99,7 @@ export function Sidebar() {
         </div>
 
         <SidebarSection label="Work">
+          <SidebarNavItem to="/chat" label="Chat" icon={MessageSquare} />
           <SidebarNavItem to="/issues" label="Issues" icon={CircleDot} />
           <SidebarNavItem to="/routines" label="Routines" icon={Repeat} />
           <SidebarNavItem to="/goals" label="Goals" icon={Target} />
